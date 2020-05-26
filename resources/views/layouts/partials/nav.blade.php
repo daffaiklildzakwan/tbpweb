@@ -85,13 +85,14 @@
         @endcanany
 
         <li class="c-sidebar-nav-item">
-            <a class="c-sidebar-nav-link" href="{{ route('frontend.myintern-proposals.index') }}">
+            <a class="c-sidebar-nav-link" href="{{ route('frontend.myinterns.index') }}">
                 <i class="cil-address-book c-sidebar-nav-icon"></i>
-                Proposal KP
+                Internship
             </a>
         </li>
 
     </ul>
     <button class="c-sidebar-minimizer c-class-toggler" type="button" data-target="_parent"
-            data-class="c-sidebar-unfoldable"></button>
+            data-class="c-sidebar-unfoldable">
+    </button>
 </div>

@@ -4,6 +4,9 @@ namespace App\Http\Controllers\Frontend\Intern;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Internship;
+use App\Models\InternshipLogbook;
+use Illuminate\Support\Facades\Gate;
 
 class MyInternLogbookController extends Controller
 {
@@ -12,9 +15,10 @@ class MyInternLogbookController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($myinterns)
     {
-        //
+        $logbooks = InternshipLogbook::where('internship_id',$myinterns)->orderBy('date','ASC')->get();
+        return view('K03.logbooks.index', compact('logbooks','myinterns'));
     }
 
     /**
@@ -22,9 +26,9 @@ class MyInternLogbookController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        //
+    public function create($myinterns)
+    {   
+        return view('K03.logbooks.create', compact('myinterns'));
     }
 
     /**
@@ -33,9 +37,20 @@ class MyInternLogbookController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store($myinterns,Request $request)
     {
-        //
+        
+        $this->validate($request, Internshiplogbook::$validation_rules);
+
+        $internshiplogbook = Internshiplogbook::create([
+            'internship_id' => $myinterns,
+            'date' => request('date'),
+            'activity' => request('activity'),
+            'notes' => request('notes'),
+        ]);
+
+        notify('success', 'Berhasil menambahkan logbook');
+        return redirect()->route('frontend.myinterns.logbooks.index', $myinterns);
     }
 
     /**
@@ -44,9 +59,10 @@ class MyInternLogbookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($myinterns,$logbooks)
     {
-        //
+        $logbooks = InternshipLogbook::where('internship_id',$myinterns)->where('id',$logbooks)->first();
+        return view('K03.logbooks.show', compact('logbooks','myinterns','logbooks'));
     }
 
     /**
@@ -55,9 +71,10 @@ class MyInternLogbookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($myinterns,$logbook)
     {
-        //
+        $logbooks = InternshipLogbook::where('internship_id',$myinterns)->where('id',$logbook)->first();
+        return view('K03.logbooks.edit', compact('logbooks','myinterns'));
     }
 
     /**
@@ -67,9 +84,13 @@ class MyInternLogbookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update( $myinterns, Request $request, $logbooks)
     {
-        //
+        $request->validate(InternshipLogbook::$validation_rules);
+
+        InternshipLogbook::where('id',$logbooks)->update($request->only('date','activity','notes'));
+
+        return redirect()->route('frontend.myinterns.logbooks.index', $myinterns);
     }
 
     /**

@@ -64,8 +64,8 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Backend', 'prefix' => 'adm
     Route::group(['namespace' => 'Academic'], function () {
 
         /** K09 - ADM */
-        Route::resource('courses', 'CourseController');
-        Route::resource('curricula', 'CurriculumController')->except(['show']);
+//        Route::resource('courses', 'CourseController');
+//        Route::resource('curricula', 'CurriculumController')->except(['show']);
 
         /** K10 - ADM */
 //        Route::get('classrooms/{id}/print', 'ClassroomController@print')->name('classrooms.print');
@@ -87,7 +87,7 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Frontend', 'as' => 'fronte
     Route::group(['namespace' => 'Intern'], function () {
 
         /** K01 - MHS */
-    Route::resource('myintern-proposals', 'MyInternProposalController');
+//    Route::resource('myintern-proposals', 'MyInternProposalController');
 //    Route::resource('myintern-proposals.members', 'MyInternProposalMemberController')->only(['create', 'store', 'destroy']);
 //    Route::resource('myintern-acceptances', 'MyInternAcceptanceController')->only(['edit', 'update']);
 
@@ -97,8 +97,8 @@ Route::group(['middleware' => 'auth', 'namespace' => 'Frontend', 'as' => 'fronte
 //    Route::resource('myintern-seminars.audiences', 'MyInternSeminarAudience')->only(['create', 'store', 'destroy']);
 
         /** K03 - MHS */
-//    Route::resource('myinterns', 'MyInternController')->except(['destroy', 'create', 'store']);
-//    Route::resource('myinterns.logbooks', 'MyInternLogbookController');
+      Route::resource('myinterns', 'MyInternController')->except(['destroy', 'create', 'store']);
+      Route::resource('myinterns.logbooks', 'MyInternLogbookController');
 
         /** K04 - KAPRODI */
 //    Route::resource('internship-submission', 'InternshipSubmissionController')->only(['index', 'edit', 'update']);

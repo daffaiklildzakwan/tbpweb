@@ -46,8 +46,7 @@
 
                 {{--CARD FOOTER--}}
                 <div class="card-footer">
-                        <button type="button" class="btn btn-primary btn-sm">Upload Berkas</button>
-                        <a href='/myinterns/{{$internship->id}}/logbooks'><button type="button" class="btn btn-primary btn-sm">LogBooks</button></a>
+                        <button type="button" class="btn btn-primary btn">Upload Berkas</button>
                 </div>
             </div><!--card-->
         </div><!--col-->

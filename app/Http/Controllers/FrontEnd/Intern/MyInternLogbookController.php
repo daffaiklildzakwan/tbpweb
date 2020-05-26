@@ -88,8 +88,12 @@ class MyInternLogbookController extends Controller
     {
         $request->validate(InternshipLogbook::$validation_rules);
 
-        InternshipLogbook::where('id',$logbooks)->update($request->only('date','activity','notes'));
-
+        if(InternshipLogbook::where('id',$logbooks)->update($request->only('date','activity','notes')))
+        {
+            notify('success', 'Berhasil merubah logbook');
+        }else{
+            notify('error', 'Gagal merubah logbook');
+        }
         return redirect()->route('frontend.myinterns.logbooks.index', $myinterns);
     }
 

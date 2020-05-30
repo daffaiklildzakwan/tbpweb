@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend\Intern;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Internship;
 
 class MyInternController extends Controller
 {
@@ -14,7 +15,9 @@ class MyInternController extends Controller
      */
     public function index()
     {
-        //
+        $user_id = auth()->user()->id;
+        $internships = Internship::where('student_id', $user_id)->get();
+        return view('K03.myinterns.index', compact('internships'));
     }
 
     /**
@@ -46,7 +49,9 @@ class MyInternController extends Controller
      */
     public function show($id)
     {
-        //
+        $user_id = auth()->user()->id;
+        $internships = Internship::where('student_id',$user_id)->where('id',$id)->get();
+        return view('K03.myinterns.show', compact('internships'));
     }
 
     /**

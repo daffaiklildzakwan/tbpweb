@@ -46,11 +46,10 @@
 
                 {{--CARD FOOTER--}}
                 <div class="card-footer">
-                        <button type="button" class="btn btn-primary btn">Upload Berkas</button>
+                        <a href="/myinterns/{{$myinterns}}/edit"><button type="button" class="btn btn-primary btn">Upload Berkas</button></a>
                 </div>
             </div><!--card-->
         </div><!--col-->
     </div><!--row-->
 
 @endsection
-

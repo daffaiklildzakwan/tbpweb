@@ -44,9 +44,10 @@ class MyInternLogbookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($myinterns,$logbooks)
     {
-        //
+        $logbooks = InternshipLogbook::where('internship_id',$myinterns)->where('id',$logbooks)->first();
+        return view('K03.logbooks.show', compact('logbooks','myinterns','logbooks'));
     }
 
     /**
@@ -55,9 +56,10 @@ class MyInternLogbookController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($myinterns,$logbook)
     {
-        //
+        $logbooks = InternshipLogbook::where('internship_id',$myinterns)->where('id',$logbook)->first();
+        return view('K03.logbooks.edit', compact('logbooks','myinterns'));
     }
 
     /**

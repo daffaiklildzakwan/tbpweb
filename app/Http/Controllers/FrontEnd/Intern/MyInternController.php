@@ -86,7 +86,7 @@ class MyInternController extends Controller
             
             notify('success', 'File Successfully Uploaded');
         }
-        elseif($request->hasFile('file_field_grade')){
+        if($request->hasFile('file_field_grade')){
             $folder = 'file_field_grade';
             $filename = $myinterns . '_'. $folder . '.' . $request->file('file_field_grade')->getClientOriginalExtension();
             $filepath = $request->file_field_grade->storeAs($folder,$filename);
@@ -94,7 +94,7 @@ class MyInternController extends Controller
             
             notify('success', 'File Successfully Uploaded');
         }
-        elseif($request->hasFile('file_logbook')){
+        if($request->hasFile('file_logbook')){
             $folder = 'file_logbook';
             $filename = $myinterns . '_'. $folder . '.' . $request->file('file_logbook')->getClientOriginalExtension();
             $filepath = $request->file_logbook->storeAs($folder,$filename);
@@ -102,7 +102,7 @@ class MyInternController extends Controller
             
             notify('success', 'File Successfully Uploaded');
         }
-        elseif($request->hasFile('file_seminar_attendance')){
+        if($request->hasFile('file_seminar_attendance')){
             $folder = 'file_seminar_attendance';
             $filename = $myinterns . '_'. $folder . '.' . $request->file('file_seminar_attendance')->getClientOriginalExtension();
             $filepath = $request->file_seminar_attendance->storeAs($folder,$filename);
@@ -110,7 +110,7 @@ class MyInternController extends Controller
             
             notify('success', 'File Successfully Uploaded');
         }
-        elseif($request->hasFile('file_seminar_off_report')){
+        if($request->hasFile('file_seminar_off_report')){
             $folder = 'file_seminar_off_report';
             $filename = $myinterns . '_'. $folder . '.' . $request->file('file_seminar_off_report')->getClientOriginalExtension();
             $filepath = $request->file_seminar_off_report->storeAs($folder,$filename);
@@ -118,7 +118,7 @@ class MyInternController extends Controller
             
             notify('success', 'File Successfully Uploaded');
         }
-        elseif($request->hasFile('file_report')){
+        if($request->hasFile('file_report')){
             $folder = 'file_report';
             $filename = $myinterns . '_'. $folder . '.' . $request->file('file_report')->getClientOriginalExtension();
             $filepath = $request->file_report->storeAs($folder,$filename);
@@ -126,7 +126,7 @@ class MyInternController extends Controller
             
             notify('success', 'File Successfully Uploaded');
         }
-        elseif($request->hasFile('file_certificate')){
+        if($request->hasFile('file_certificate')){
             $folder = 'file_certificate';
             $filename = $myinterns . '_'. $folder . '.' . $request->file('file_certificate')->getClientOriginalExtension();
             $filepath = $request->file_certificate->storeAs($folder,$filename);

@@ -28,7 +28,7 @@
 
                         {{--CARD FOOTER--}}
                         <div class="card-footer">
-                            <a href='/myinterns/{{$myinterns}}/logbooks'><button type="button" class="btn btn-primary">Back</button></a>
+                            {!! cui()->btn(route('frontend.myinterns.logbooks.index', [$myinterns]),' ','Back') !!} 
                         </div>
 
                     </div>

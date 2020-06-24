@@ -47,7 +47,7 @@
                             <td class="text-center">{{$internship->proposal->agency->address}}</td>
                             <td class="text-center">
                                 {!! cui()->btn_view(route('frontend.myinterns.show', [$internship->id])) !!}
-                                <a href='/myinterns/{{$internship->id}}/logbooks'><button type="button" class="btn btn-info btn-sm">LogBooks</button></a>
+                                {!! cui()->btn(route('frontend.myinterns.logbooks.index', [$internship->id]),'cil-address-book') !!}
                             </td>
                         </tr>
                         @empty

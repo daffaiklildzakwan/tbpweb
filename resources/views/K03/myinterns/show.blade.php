@@ -46,11 +46,10 @@
 
                 {{--CARD FOOTER--}}
                 <div class="card-footer">
-                        <button type="button" class="btn btn-primary btn">Upload Berkas</button>
+                        {!! cui()->btn(route('frontend.myinterns.edit', [$myinterns]),'cil-folder',' Upload Berkas') !!}    
                 </div>
             </div><!--card-->
         </div><!--col-->
     </div><!--row-->
 
 @endsection
-

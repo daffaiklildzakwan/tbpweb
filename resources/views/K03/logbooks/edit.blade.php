@@ -20,7 +20,7 @@
 
                         {{-- CARD HEADER--}}
                         <div class="card-header">
-                          <strong> <i class="cil-zoom"></i> Detail Logbook</strong>
+                          <strong> <i class="cil-zoom"></i> Edit Logbook</strong>
                         </div>
 
                         {{-- CARD BODY--}}

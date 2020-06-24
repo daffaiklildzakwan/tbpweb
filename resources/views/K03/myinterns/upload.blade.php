@@ -30,7 +30,7 @@
 
                     {{--CARD FOOTER--}}
                     <div class="card-footer">
-                        <input type="submit" class="btn btn-primary" value="Ubah Data"/>
+                        <input type="submit" class="btn btn-primary" value="Simpan Data"/>
                     </div>
 
                     {{ html()->closeModelForm() }}

@@ -8,6 +8,10 @@
     ]) !!}
 @endsection
 
+@section('toolbar')
+    {!! cui()->toolbar_btn(route('frontend.myinterns.edit', [$myinterns]),'cil-folder',' Laporkan Selesai KP') !!} 
+@endsection
+
 @section('content')
     <div class="row justify-content-center">
         <div class="col">
@@ -20,33 +24,12 @@
 
                 {{-- CARD BODY--}}
                 <div class="card-body">
-                    <table cellpadding='10'>
-                    @foreach($internships as $internship)
-                        <tr>
-                            <td>Judul KP</td><td>: {{$internship->title}}</td>
-                        </tr>   
-                        <tr>
-                            <td>Dosen Pembimbing KP Lapangan</td><td>: {{$internship->field_advisor_name}}</td>
-                        </tr>   
-                        <tr>
-                            <td>Tempat Pelaksanaan KP</td>
-                        </tr> 
-                        <tr>
-                            <td>- Nama Instansi / Perusahaan</td><td>: {{$internship->proposal->agency->name}}</td>
-                        </tr>   
-                        <tr>
-                            <td>- Alamat Instansi / Perusahaan</td><td>: {{$internship->proposal->agency->address}}</td>
-                        </tr>   
-                        <tr>
-                            <td>Waktu Pelaksanaan KP</td><td>: {{$internship->start_at}} s/d {{$internship->end_at}}</td>
-                        </tr> 
-                    @endforeach
-                    </table>
-                </div><!--card-body-->
+                    @include('K03.myinterns._detail')
+                </div>
 
                 {{--CARD FOOTER--}}
                 <div class="card-footer">
-                        {!! cui()->btn(route('frontend.myinterns.edit', [$myinterns]),'cil-folder',' Upload Berkas') !!}    
+                           
                 </div>
             </div><!--card-->
         </div><!--col-->

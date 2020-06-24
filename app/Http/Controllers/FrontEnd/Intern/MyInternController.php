@@ -52,7 +52,7 @@ class MyInternController extends Controller
     public function show($myinterns)
     {
         $user_id = auth()->user()->id;
-        $internships = Internship::where('student_id',$user_id)->where('id',$myinterns)->get();
+        $internships = Internship::where('student_id',$user_id)->where('id',$myinterns)->first();
         return view('K03.myinterns.show', compact('internships','myinterns'));
     }
 
@@ -79,7 +79,7 @@ class MyInternController extends Controller
     {
         $internship = Internship::find($myinterns);
         if($request->hasFile('file_report_receipt')){
-            $folder = 'File_Report_Receipt';
+            $folder = 'file_report_receipt';
             $filename = $myinterns . '_'. $folder . '.' . $request->file('file_report_receipt')->getClientOriginalExtension();
             $filepath = $request->file_report_receipt->storeAs($folder,$filename);
             $internship->file_report_receipt = $filename;

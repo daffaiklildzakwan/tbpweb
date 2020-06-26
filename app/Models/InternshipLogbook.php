@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class InternshipLogbook extends Model
 {
-    protected $fillable = ['internship_id','date','activity','notes'];
+    protected $fillable = ['internship_id','date','activity'];
 
     public function internship()
     {
@@ -14,9 +14,14 @@ class InternshipLogbook extends Model
     }
 
     static $validation_rules = [
-        'date' => 'required|date',
-        'activity' => 'required',
-        'notes' => 'required',
+        'date' => 'required|date|unique:internship_logbooks',
+        'activity' => 'required'
+    ];
+
+    static $validation_message = [
+        'date.unique' => 'Hanya Bisa Menginputkan Satu Logbook dalam Satu Hari',
+        'date.required' => 'Field Date Tidak Boleh Kosong',
+        'activity.required' => 'Field Activity Tidak Boleh Kosong'
     ];
 
 }

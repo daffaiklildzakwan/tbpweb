@@ -40,13 +40,12 @@ class MyInternLogbookController extends Controller
     public function store($myinterns,Request $request)
     {
         
-        $this->validate($request, Internshiplogbook::$validation_rules);
+        $this->validate($request, Internshiplogbook::$validation_rules,Internshiplogbook::$validation_message);
 
         $internshiplogbook = Internshiplogbook::create([
             'internship_id' => $myinterns,
             'date' => request('date'),
             'activity' => request('activity'),
-            'notes' => request('notes'),
         ]);
 
         notify('success', 'Berhasil menambahkan logbook');
@@ -86,9 +85,12 @@ class MyInternLogbookController extends Controller
      */
     public function update( $myinterns, Request $request, $logbooks)
     {
-        $request->validate(InternshipLogbook::$validation_rules);
+        $request->validate(
+            ['date' => 'required|date|unique:internship_logbooks,date,'.$logbooks,
+            'activity' => 'required'],
+        InternshipLogbook::$validation_message);
 
-        if(InternshipLogbook::where('id',$logbooks)->update($request->only('date','activity','notes')))
+        if(InternshipLogbook::where('id',$logbooks)->update($request->only('date','activity')))
         {
             notify('success', 'Berhasil merubah logbook');
         }else{

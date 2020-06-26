@@ -39,7 +39,7 @@
                             <tr>
                                 <td class="text-center">{{ $loop->iteration }}</td>
                                 <td class="text-center">{{ $logbook->date }}</td>
-                                <td class="text-center">{{ $logbook->activity }}</td>
+                                <td class="text-left">{{ $logbook->activity }}</td>
                                 <td class="text-center">
                                     {!! cui()->btn_view(route('frontend.myinterns.logbooks.show', [$logbook->internship->id,$logbook->id])) !!}
                                     {!! cui()->btn_edit(route('frontend.myinterns.logbooks.edit', [$logbook->internship->id,$logbook->id])) !!}

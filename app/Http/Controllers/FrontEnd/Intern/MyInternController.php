@@ -77,62 +77,47 @@ class MyInternController extends Controller
      */
     public function update(Request $request, $myinterns)
     {
+        $request->validate(
+        [
+            'file_report_receipt' => 'mimes:pdf,doc,docx',
+            'file_field_grade' => 'mimes:pdf,doc,docx',
+            'file_logbook' =>'mimes:pdf,doc,docx',
+            'file_certificate' => 'mimes:pdf,doc,docx'
+        ]);
+        
         $internship = Internship::find($myinterns);
         if($request->hasFile('file_report_receipt')){
             $folder = 'file_report_receipt';
             $filename = $myinterns . '_'. $folder . '.' . $request->file('file_report_receipt')->getClientOriginalExtension();
-            $filepath = $request->file_report_receipt->storeAs($folder,$filename);
+            $filepath = $request->file_report_receipt->storeAs('public/'.$folder,$filename);
             $internship->file_report_receipt = $filename;
             
-            notify('success', 'File Successfully Uploaded');
+            notify('success', 'File Bukti Penyerahan Laporan Berhasil di Upload');
         }
         if($request->hasFile('file_field_grade')){
             $folder = 'file_field_grade';
             $filename = $myinterns . '_'. $folder . '.' . $request->file('file_field_grade')->getClientOriginalExtension();
-            $filepath = $request->file_field_grade->storeAs($folder,$filename);
+            $filepath = $request->file_field_grade->storeAs('public/'.$folder,$filename);
             $internship->file_field_grade = $filename;
             
-            notify('success', 'File Successfully Uploaded');
+            notify('success', 'File Nilai Lapangan Berhasil di Upload');
         }
         if($request->hasFile('file_logbook')){
             $folder = 'file_logbook';
             $filename = $myinterns . '_'. $folder . '.' . $request->file('file_logbook')->getClientOriginalExtension();
-            $filepath = $request->file_logbook->storeAs($folder,$filename);
+            $filepath = $request->file_logbook->storeAs('public/'.$folder,$filename);
             $internship->file_logbook = $filename;
             
-            notify('success', 'File Successfully Uploaded');
+            notify('success', 'File Logbook Berhasil di Upload');
         }
-        if($request->hasFile('file_seminar_attendance')){
-            $folder = 'file_seminar_attendance';
-            $filename = $myinterns . '_'. $folder . '.' . $request->file('file_seminar_attendance')->getClientOriginalExtension();
-            $filepath = $request->file_seminar_attendance->storeAs($folder,$filename);
-            $internship->file_seminar_attendance = $filename;
-            
-            notify('success', 'File Successfully Uploaded');
-        }
-        if($request->hasFile('file_seminar_off_report')){
-            $folder = 'file_seminar_off_report';
-            $filename = $myinterns . '_'. $folder . '.' . $request->file('file_seminar_off_report')->getClientOriginalExtension();
-            $filepath = $request->file_seminar_off_report->storeAs($folder,$filename);
-            $internship->file_seminar_off_report = $filename;
-            
-            notify('success', 'File Successfully Uploaded');
-        }
-        if($request->hasFile('file_report')){
-            $folder = 'file_report';
-            $filename = $myinterns . '_'. $folder . '.' . $request->file('file_report')->getClientOriginalExtension();
-            $filepath = $request->file_report->storeAs($folder,$filename);
-            $internship->file_report = $filename;
-            
-            notify('success', 'File Successfully Uploaded');
-        }
+
         if($request->hasFile('file_certificate')){
             $folder = 'file_certificate';
             $filename = $myinterns . '_'. $folder . '.' . $request->file('file_certificate')->getClientOriginalExtension();
-            $filepath = $request->file_certificate->storeAs($folder,$filename);
+            $filepath = $request->file_certificate->storeAs('public/'.$folder,$filename);
             $internship->file_certificate = $filename;
             
-            notify('success', 'File Successfully Uploaded');
+            notify('success', 'File Sertifikat Berhasil di Upload');
         }
         $internship->save();
         return redirect()->route('frontend.myinterns.show', $myinterns);

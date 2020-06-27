@@ -46,7 +46,7 @@
 <div class="form-group">
     <div class="form-label">Bukti Penyerahan Laporan</div>
     @if(isset($internships->file_report_receipt))
-        <div><a href='{{asset('../storage/app/file_report_receipt/'.$internships->file_report_receipt)}}' class='btn btn-sm btn-info'><i class='fa cil-data-transfer-down'> Download</i></a></div>
+        <div><a href='{{asset('storage/file_report_receipt/'.$internships->file_report_receipt)}}' class='btn btn-sm btn-info'><i class='fa cil-data-transfer-down'> Download</i></a></div>
     @else
     <div><i>Tidak Ada File</i></div>
     @endif
@@ -56,7 +56,7 @@
 <div class="form-group">
     <div class="form-label">Nilai Lapangan</div>
     @if(isset($internships->file_field_grade))
-        <div><a href='{{asset('../storage/app/file_field_grade/'.$internships->file_field_grade)}}' class='btn btn-sm btn-info'><i class='fa cil-data-transfer-down'> Download</i></a></div>
+        <div><a href='{{asset('storage/file_field_grade/'.$internships->file_field_grade)}}' class='btn btn-sm btn-info'><i class='fa cil-data-transfer-down'> Download</i></a></div>
     @else
     <div><i>Tidak Ada File</i></div>
     @endif
@@ -66,7 +66,7 @@
 <div class="form-group">
     <div class="form-label">Logbook</div>
     @if(isset($internships->file_logbook))
-        <div><a href='{{asset('../storage/app/file_logbook/'.$internships->file_logbook)}}' class='btn btn-sm btn-info'><i class='fa cil-data-transfer-down'> Download</i></a></div>
+        <div><a href='{{asset('storage/file_logbook/'.$internships->file_logbook)}}' class='btn btn-sm btn-info'><i class='fa cil-data-transfer-down'> Download</i></a></div>
     @else
     <div><i>Tidak Ada File</i></div>
     @endif
@@ -76,7 +76,7 @@
 <div class="form-group">
     <div class="form-label">Sertifikat</div>
     @if(isset($internships->file_certificate))
-        <div><a href='{{asset('../storage/app/file_certificate/'.$internships->file_certificate)}}' class='btn btn-sm btn-info'><i class='fa cil-data-transfer-down'> Download</i></a></div>
+        <div><a href='{{asset('storage/file_certificate/'.$internships->file_certificate)}}' class='btn btn-sm btn-info'><i class='fa cil-data-transfer-down'> Download</i></a></div>
     @else
     <div><i>Tidak Ada File</i></div>
     @endif
@@ -86,7 +86,7 @@
 <div class="form-group">
     <div class="form-label">File Seminar Attendance</div>
     @if(isset($internships->file_seminar_attendance))
-        <div><a href='{{asset('../storage/app/file_seminar_attendance/'.$internships->file_seminar_attendance)}}' class='btn btn-sm btn-info'><i class='fa cil-data-transfer-down'> Download</i></a></div>
+        <div><a href='{{asset('storage/file_seminar_attendance/'.$internships->file_seminar_attendance)}}' class='btn btn-sm btn-info'><i class='fa cil-data-transfer-down'> Download</i></a></div>
     @else
     <div><i>Tidak Ada File</i></div>
     @endif
@@ -96,7 +96,7 @@
 <div class="form-group">
     <div class="form-label">File Seminar Off Report</div>
     @if(isset($internships->file_seminar_off_report))
-        <div><a href='{{asset('../storage/app/file_seminar_off_report/'.$internships->file_seminar_off_report)}}' class='btn btn-sm btn-info'><i class='fa cil-data-transfer-down'> Download</i></a></div>
+        <div><a href='{{asset('storage/file_seminar_off_report/'.$internships->file_seminar_off_report)}}' class='btn btn-sm btn-info'><i class='fa cil-data-transfer-down'> Download</i></a></div>
     @else
     <div><i>Tidak Ada File</i></div>
     @endif
@@ -106,7 +106,7 @@
 <div class="form-group">
     <div class="form-label">File Report</div>
     @if(isset($internships->file_report))
-        <div><a href='{{asset('../storage/app/file_report/'.$internships->file_report)}}' class='btn btn-sm btn-info'><i class='fa cil-data-transfer-down'> Download</i></a></div>
+        <div><a href='{{asset('storage/file_report/'.$internships->file_report)}}' class='btn btn-sm btn-info'><i class='fa cil-data-transfer-down'> Download</i></a></div>
     @else
     <div><i>Tidak Ada File</i></div>
     @endif
